@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.35.0",
+    "framer-motion": "^12.23.19",
+    "lucide-react": "^0.544.0",
+    "popmotion": "^11.0.5",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
