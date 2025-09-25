@@ -6,34 +6,34 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-
-const features = [
-  {
-    title: "Educational Games",
-    subtitle: "Explore Educational Games with Interactive Quiz",
-    description:
-      "Engaging games that make learning fun and memorable. Test your knowledge while having fun!",
-    img: "/game-preview.png",
-    button: "Play Games",
-    color: "from-green-500 to-green-600",
-    icon: "🎮",
-  },
-  {
-    title: "Virtual Labs",
-    subtitle: "Experience Virtual Labs with Hands-on Learning",
-    description:
-      "Safe, interactive laboratory experiments without any real-world constraints or risks.",
-    img: "/lab-preview.png",
-    button: "Explore Labs",
-    color: "from-indigo-500 to-purple-600",
-    icon: "🔬",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Features = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+
+  const features = [
+    {
+      title: t("games"),
+      subtitle: t("experienceVirtualLabs"),
+      description: t("safeInteractiveLabs"),
+      img: "/game-preview.png",
+      button: t("exploreLabs"),
+      color: "from-green-500 to-green-600",
+      icon: "🎮",
+    },
+    {
+      title: t("virtualLabs"),
+      subtitle: t("experienceVirtualLabs"),
+      description: t("safeInteractiveLabs"),
+      img: "/lab-preview.png",
+      button: t("exploreLabs"),
+      color: "from-indigo-500 to-purple-600",
+      icon: "🔬",
+    },
+  ];
 
   // Track when section enters viewport
   const { scrollYProgress } = useScroll({
@@ -82,11 +82,10 @@ const Features = () => {
         {/* Section Header */}
         <motion.div style={{ y, opacity }} className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-            Explore Our <span className="text-green-600">Learning Tools</span>
+            {t("exploreOurLearningTools")}{" "}
+            <span className="text-green-600">{t("learningTools")}</span>
           </h2>
-          <p className="text-lg text-gray-600">
-            Scroll to discover interactive features
-          </p>
+          <p className="text-lg text-gray-600">{t("scrollToDiscover")}</p>
         </motion.div>
 
         {/* Features Container - Normal Flow (No Fixed Positioning) */}
@@ -121,7 +120,7 @@ const Features = () => {
                       {features[activeIndex].title}
                     </h3>
                     <p className="text-lg opacity-90">
-                      Interactive Learning Experience
+                      {t("interactiveLearningExperience")}
                     </p>
                   </div>
 

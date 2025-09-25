@@ -2,8 +2,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, Users, Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const CTA = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    { icon: BookOpen, text: t("interactiveLessons") },
+    { icon: Users, text: t("collaborativeLearning") },
+    { icon: Trophy, text: t("gamifiedProgress") },
+  ];
+
   return (
     <section className="w-full min-h-screen bg-gradient-to-br from-green-600 via-green-500 to-blue-600 py-20 flex items-center justify-center">
       <div className="max-w-5xl mx-auto px-6 text-center text-white">
@@ -15,10 +24,9 @@ const CTA = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Transform your{" "}
-          <span className="text-yellow-300">classroom experience</span>.
+          {t("transformClassroom")}
           <br />
-          Start learning with games today.
+          <span className="text-yellow-300">{t("startLearningWithGames")}</span>
         </motion.h1>
 
         {/* Divider */}
@@ -38,11 +46,7 @@ const CTA = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           viewport={{ once: true }}
         >
-          {[
-            { icon: BookOpen, text: "Interactive Lessons" },
-            { icon: Users, text: "Collaborative Learning" },
-            { icon: Trophy, text: "Gamified Progress" },
-          ].map((item, index) => (
+          {features.map((item, index) => (
             <div key={index} className="flex items-center justify-center gap-3">
               <item.icon size={24} className="text-yellow-300" />
               <span className="text-lg font-medium">{item.text}</span>
@@ -59,12 +63,12 @@ const CTA = () => {
           viewport={{ once: true }}
         >
           <button className="px-8 py-4 bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-            Get started for free
+            {t("getStartedForFree")}
             <ArrowRight size={20} />
           </button>
 
           <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-            See how it works
+            {t("seeHowItWorks")}
             <ArrowRight size={20} />
           </button>
         </motion.div>

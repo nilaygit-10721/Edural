@@ -1,45 +1,47 @@
 // src/components/HowItWorks.jsx
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-const steps = [
-  {
-    number: "01",
-    title: "Sign Up & Create Profile",
-    description: "Quick registration to start your learning journey",
-    icon: "👤",
-    color: "from-blue-500 via-cyan-500 to-cyan-600",
-  },
-  {
-    number: "02",
-    title: "Choose Learning Path",
-    description: "Select games, labs, or quizzes based on your interests",
-    icon: "🎯",
-    color: "from-purple-500 via-fuchsia-500 to-pink-600",
-  },
-  {
-    number: "03",
-    title: "Start Interactive Learning",
-    description: "Engage with immersive educational content",
-    icon: "🚀",
-    color: "from-green-500 via-teal-500 to-emerald-600",
-  },
-  {
-    number: "04",
-    title: "Track Progress & Improve",
-    description: "Monitor your growth and achievements",
-    icon: "📈",
-    color: "from-orange-500 via-rose-500 to-red-600",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     // Changed offset to prevent overflow into next section
     offset: ["start end", "end center"],
   });
+
+  const steps = [
+    {
+      number: "01",
+      title: t("signUpCreateProfile"),
+      description: t("quickRegistration"),
+      icon: "👤",
+      color: "from-blue-500 via-cyan-500 to-cyan-600",
+    },
+    {
+      number: "02",
+      title: t("chooseLearningPath"),
+      description: t("selectGamesLabs"),
+      icon: "🎯",
+      color: "from-purple-500 via-fuchsia-500 to-pink-600",
+    },
+    {
+      number: "03",
+      title: t("startInteractiveLearning"),
+      description: t("engageWithContent"),
+      icon: "🚀",
+      color: "from-green-500 via-teal-500 to-emerald-600",
+    },
+    {
+      number: "04",
+      title: t("trackProgressImprove"),
+      description: t("monitorGrowth"),
+      icon: "📈",
+      color: "from-orange-500 via-rose-500 to-red-600",
+    },
+  ];
 
   // Animate header with better bounds
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
@@ -58,13 +60,13 @@ const HowItWorks = () => {
           className="text-center mb-16 md:mb-20 relative"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
-            How It{" "}
+            {t("howItWorks")}{" "}
             <span className="bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent">
-              Works
+              {t("howItWorks").split(" ")[1] || t("howItWorks")}
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Simple steps to start your interactive learning journey
+            {t("simpleSteps")}
           </p>
         </motion.div>
 
@@ -163,7 +165,7 @@ const HowItWorks = () => {
             whileTap={{ scale: 0.95 }}
             className="relative px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-green-500 to-teal-500 text-white text-lg font-semibold rounded-2xl shadow-lg overflow-hidden"
           >
-            <span className="relative z-10">Get Started Today</span>
+            <span className="relative z-10">{t("getStartedToday")}</span>
             {/* Shimmer Effect */}
             <motion.span
               className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/40 to-white/20"

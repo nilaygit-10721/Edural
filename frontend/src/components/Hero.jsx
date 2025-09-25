@@ -1,9 +1,11 @@
 // src/components/Hero.jsx
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import hero from "../assets/hero.png";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -40,9 +42,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Learn With <span className="text-green-600">Interactive Games</span>
+            {t("learnWithInteractiveGames")}{" "}
+            <span className="text-green-600">{t("games")}</span>
             <br />
-            and Boost Your Learning Journey
+            {t("boostYourLearningJourney")}
           </motion.h1>
 
           <motion.p
@@ -51,8 +54,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Play and learn at the same time. Experience education with passion,
-            curiosity, and fun — designed for students in rural schools.
+            {t("playAndLearn")}
           </motion.p>
 
           <motion.div
@@ -65,13 +67,13 @@ const Hero = () => {
               href="#features"
               className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
-              Start Now
+              {t("startNow")}
             </a>
             <a
               href="#about"
               className="px-8 py-4 border-2 border-green-600 text-green-600 text-lg font-semibold rounded-xl hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-105"
             >
-              Learn More
+              {t("learnMore")}
             </a>
           </motion.div>
         </motion.div>
@@ -83,7 +85,7 @@ const Hero = () => {
         >
           <motion.img
             src={hero}
-            alt="Students learning"
+            alt={t("studentsLearning")}
             className="rounded-2xl shadow-2xl w-full max-w-md lg:max-w-lg"
             initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -104,7 +106,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <span className="text-sm mb-2">Scroll to explore</span>
+        <span className="text-sm mb-2">{t("scrollToExplore")}</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

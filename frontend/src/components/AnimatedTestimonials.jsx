@@ -3,9 +3,11 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 // ✅ Main Component
 const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
+  const { t } = useTranslation();
   const [active, setActive] = useState(0);
 
   const handleNext = () => {
@@ -130,61 +132,55 @@ const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
 
 // ✅ Demo Wrapper
 export default function AnimatedTestimonialsDemo() {
+  const { t } = useTranslation();
+
   const testimonials = [
     {
-      quote:
-        "The educational games have completely transformed my classroom. My students are now excited about learning and their test scores have improved by 40% in just two months!",
+      quote: t("sarahJohnsonQuote"),
       name: "Sarah Johnson",
-      designation: "8th Grade Science Teacher, Green Valley School",
+      designation: t("sarahJohnsonDesignation"),
       src: "https://images.unsplash.com/photo-1584697964358-3e14ca57658b?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "As a student in a rural area, I never had access to proper science labs. This platform gave me hands-on experience that helped me win the regional science fair competition!",
-      name: "Priya Patel",
-      designation: "High School Student, Science Fair Winner",
+      quote: t("priyaPatelQuote"),
+      name: t("priyaPatel"),
+      designation: t("priyaPatelDesignation"),
       src: "https://images.unsplash.com/photo-1630331513574-9fe267fd49d3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      quote:
-        "The virtual labs are incredibly realistic and safe. My students can conduct experiments without any risks, and they're learning complex concepts through interactive play.",
+      quote: t("michaelRodriguezQuote"),
       name: "Michael Rodriguez",
-      designation: "STEM Coordinator, Innovation Academy",
+      designation: t("michaelRodriguezDesignation"),
       src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "My daughter went from struggling with mathematics to loving it. The gamified approach made learning fun instead of frustrating. Thank you for making education joyful!",
+      quote: t("mariaGonzalezQuote"),
       name: "Maria Gonzalez",
-      designation: "Parent of 6th Grade Student",
+      designation: t("mariaGonzalezDesignation"),
       src: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "The progress tracking system helps me identify exactly where each student needs help. It's like having a teaching assistant for every child in my classroom.",
+      quote: t("davidChenQuote"),
       name: "David Chen",
-      designation: "Mathematics Teacher, Elementary School",
+      designation: t("davidChenDesignation"),
       src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "Our rural school district finally has access to quality educational resources. The interactive quizzes and games have leveled the playing field for our students.",
+      quote: t("amandaRobertsQuote"),
       name: "Dr. Amanda Roberts",
-      designation: "School District Superintendent",
+      designation: t("amandaRobertsDesignation"),
       src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "I used to find learning boring, but now I look forward to completing my assignments. The games make even difficult subjects enjoyable and easy to understand.",
+      quote: t("alexThompsonQuote"),
       name: "Alex Thompson",
-      designation: "7th Grade Student",
+      designation: t("alexThompsonDesignation"),
       src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop",
     },
     {
-      quote:
-        "The platform's accessibility features have been life-changing for our special needs students. Every child can learn at their own pace and in their own way.",
+      quote: t("jenniferWilliamsQuote"),
       name: "Jennifer Williams",
-      designation: "Special Education Teacher",
+      designation: t("jenniferWilliamsDesignation"),
       src: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=500&auto=format&fit=crop",
     },
   ];
