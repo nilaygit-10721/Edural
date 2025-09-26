@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 // Create API utility function using fetch
 const api = {
   async post(endpoint, data) {
-    const response = await fetch(`http://localhost:5000/api${endpoint}`, {
+    const response = await fetch(`https://edural.onrender.com/api${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +19,7 @@ const api = {
   },
 
   async get(endpoint) {
-    const response = await fetch(`http://localhost:5000/api${endpoint}`, {
+    const response = await fetch(`https://edural.onrender.com/api${endpoint}`, {
       headers: {
         "Content-Type": "application/json",
       },
