@@ -8,6 +8,11 @@ import FAQ from "./components/AnimatedTestimonials";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import "./i18n";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+import Labs from "./components/Labs";
+import ProgressPanel from "./components/ProgressPanel";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -34,6 +39,12 @@ function App() {
         {/* Signup Page */}
         <Route path="/signup" element={<SignUp />} />
 
+        {/* Additional Pages */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/labs" element={<Labs />} />
+        <Route path="/progress" element={<ProgressPanel />} />
+
         {/* Tools Page (where login redirects) */}
         <Route
           path="/tools"
@@ -52,6 +63,9 @@ function App() {
           }
         />
       </Routes>
+
+      {/* Chatbot visible on every page */}
+      <Chatbot />
     </>
   );
 }
