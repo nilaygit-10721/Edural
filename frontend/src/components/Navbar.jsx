@@ -127,7 +127,7 @@ const Navbar = () => {
                   {t("labs")}
                 </Link>
                 <Link
-                  to="/games"
+                  to="/home"
                   className="hover:text-green-600 transition-colors"
                 >
                   {t("games")}

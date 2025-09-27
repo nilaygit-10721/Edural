@@ -5,14 +5,58 @@ import Navbar from "../components/Navbar";
 import GameCard from "../components/GameCard";
 import DiscussionForm from "../components/DiscussionForm";
 import Quiz from "../components/Quiz";
-import lab1 from "../assets/lab1.png"
+import lab1 from "../assets/lab1.png";
+import lab2 from "../assets/img-2.jpg";
+import lab3 from "../assets/algebra.png";
 const gamesData = [
-  { id: 1, title: "Reflection of light", minutes: 5, grade: 12, subject: "Physics",image:lab1,description:"Lab for learning reflections of light" },
-  { id: 2, title: "Thermal City Builder", minutes: 8, grade: 9, subject: "Chemistry" },
-  { id: 3, title: "Algebra Adventures", minutes: 10, grade: 10, subject: "Maths" },
-  { id: 4, title: "Plant Biology Explorer", minutes: 7, grade: 8, subject: "Biology" },
-  { id: 5, title: "Orbital Mechanics", minutes: 6, grade: 11, subject: "Physics" },
-  { id: 6, title: "Stoichiometry Challenge", minutes: 9, grade: 12, subject: "Chemistry" },
+  {
+    id: 1,
+    title: "Reflection of light",
+    minutes: 5,
+    grade: 12,
+    subject: "Physics",
+    image: lab1,
+    description: "Lab for learning reflections of light",
+  },
+  {
+    id: 2,
+    title: "Thermal City Builder",
+    minutes: 8,
+    grade: 9,
+    subject: "Chemistry",
+    image: lab2,
+    description: "Lab for learning thermal energy",
+  },
+  {
+    id: 3,
+    title: "Algebra Adventures",
+    minutes: 10,
+    grade: 10,
+    subject: "Maths",
+    image: lab3,
+    description: "Lab for learning algebra",
+  },
+  // {
+  //   id: 4,
+  //   title: "Plant Biology Explorer",
+  //   minutes: 7,
+  //   grade: 8,
+  //   subject: "Biology",
+  // },
+  // {
+  //   id: 5,
+  //   title: "Orbital Mechanics",
+  //   minutes: 6,
+  //   grade: 11,
+  //   subject: "Physics",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Stoichiometry Challenge",
+  //   minutes: 9,
+  //   grade: 12,
+  //   subject: "Chemistry",
+  // },
   // add more mock items as needed
 ];
 
@@ -29,7 +73,8 @@ const Labs = () => {
     const q = query.trim().toLowerCase();
     return gamesData.filter((g) => {
       const matchesQuery = q === "" || g.title.toLowerCase().includes(q);
-      const matchesSubject = subject === "All Subjects" || g.subject === subject;
+      const matchesSubject =
+        subject === "All Subjects" || g.subject === subject;
       const matchesGrade = grade === "All Grades" || g.grade === Number(grade);
       return matchesQuery && matchesSubject && matchesGrade;
     });
@@ -37,7 +82,6 @@ const Labs = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-    
       <Sidebar />
 
       <main className="ml-0 sm:ml-52 p-8">
@@ -53,8 +97,7 @@ const Labs = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="flex-1 border border-gray-400 rounded p-2 outline-none"
-                              placeholder="Search Labs by title..."
-                              
+                placeholder="Search Labs by title..."
               />
 
               <select
@@ -89,7 +132,9 @@ const Labs = () => {
         {/* Results */}
         <section>
           {filteredGames.length === 0 ? (
-            <div className="text-center text-gray-500 py-12">No Labs found for your search/filter.</div>
+            <div className="text-center text-gray-500 py-12">
+              No Labs found for your search/filter.
+            </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {filteredGames.map((g) => (
@@ -111,7 +156,6 @@ const Labs = () => {
         {/* Discussion & Quiz */}
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <DiscussionForm />
-       
         </div>
       </main>
     </div>
