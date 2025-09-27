@@ -64,11 +64,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a
-              href="#features"
+              href="/home"
               className="px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               {t("startNow")}
             </a>
+
             <a
               href="#about"
               className="px-8 py-4 border-2 border-green-600 text-green-600 text-lg font-semibold rounded-xl hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-105"

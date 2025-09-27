@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, Users, Trophy } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   const { t } = useTranslation();
@@ -62,15 +63,21 @@ const CTA = () => {
           transition={{ duration: 0.8, delay: 0.9 }}
           viewport={{ once: true }}
         >
-          <button className="px-8 py-4 bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+          <Link
+            to="/signup"
+            className="px-8 py-4 bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
             {t("getStartedForFree")}
             <ArrowRight size={20} />
-          </button>
+          </Link>
 
-          <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+          <Link
+            to="/how-it-works"
+            className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-green-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
             {t("seeHowItWorks")}
             <ArrowRight size={20} />
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

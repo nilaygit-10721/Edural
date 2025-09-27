@@ -20,7 +20,8 @@ const Features = () => {
       subtitle: t("experienceVirtualLabs"),
       description: t("safeInteractiveLabs"),
       img: "/game-preview.png",
-      button: t("exploreLabs"),
+      button: t("exploreGames"),
+      link: "/home", // Redirect to Home
       color: "from-green-500 to-green-600",
       icon: "🎮",
     },
@@ -30,6 +31,7 @@ const Features = () => {
       description: t("safeInteractiveLabs"),
       img: "/lab-preview.png",
       button: t("exploreLabs"),
+      link: "/labs", // Redirect to Labs
       color: "from-indigo-500 to-purple-600",
       icon: "🔬",
     },
@@ -168,11 +170,12 @@ const Features = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <button
+                  <a
+                    href={features[activeIndex].link}
                     className={`px-8 py-4 bg-gradient-to-r ${features[activeIndex].color} text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-lg`}
                   >
                     {features[activeIndex].button}
-                  </button>
+                  </a>
                 </motion.div>
               </motion.div>
             </motion.div>
